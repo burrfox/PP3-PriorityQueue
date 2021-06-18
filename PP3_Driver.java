@@ -12,50 +12,11 @@ import java.util.PriorityQueue;
 
 public class PP3_Driver {
 
-    public static class Times {
-        double t1;
-        double t2;
-
-        public Times(double t1, double t2) {
-            this.t1 = t1;
-            this.t2 = t2;
-        }
-
-        public double getT1() {
-            return t1;
-        }
-
-        public double getT2() {
-            return t2;
-        }
-    }
+    
 
 
     public static void main(String[] args) throws UnderflowException {
 
-        Times[] times = new Times[10];
-
-        for (int i = 0; i < 10; i++) {
-            Times t = driver();
-            times[i] = t;
-        }
-
-        double t1 = 0;
-        double t2 = 0;
-        for (int i = 0; i < 10; i++) {
-            t1 += times[i].getT1();
-            t2 += times[i].getT2();
-        }
-
-        double t1Avg = t1/10.0;
-        double t2Avg = t2/10.0;
-
-        DecimalFormat f1 = new DecimalFormat("##.000");
-        System.out.println("\n\nT1 avg = " + f1.format(t1Avg) + "\nT2 avg = " + f1.format(t2Avg));
-
-    }
-
-    public static Times driver() {
         City[] cities = getCityData();
 
         long t1Start = System.nanoTime();
@@ -84,8 +45,8 @@ public class PP3_Driver {
         System.out.println("T1 execution in seconds: " + f1.format(t1Seconds));
         System.out.println("T2 execution in seconds: " + f1.format(t2Seconds));
 
-        return new Times(t1Seconds, t2Seconds);
     }
+
 
     public static City[] getCityData() {
         try {
